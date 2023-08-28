@@ -1,3 +1,7 @@
+# Start
+
+`cd backend\app`
+
 # Initial
 
 `python -m venv venv`
@@ -15,6 +19,8 @@
 `pip install -r requirements.txt`
 
 # Run
+
+`uvicorn app.initial_data:main`
 
 `uvicorn app.main:app --reload`
 
