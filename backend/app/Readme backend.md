@@ -2,6 +2,8 @@
 
 `cd backend\app`
 
+`venv\Scripts\activate`
+
 # Initial
 
 `python -m venv venv`
@@ -11,10 +13,6 @@
 `pip install pipreqs`
 
 `pip install "uvicorn[standard]"`
-
-`pipreqs . --force`
-
-`pip freeze > requirements.txt`
 
 `pip install -r requirements.txt`
 
