@@ -20,7 +20,7 @@ export const api = {
     params.append("username", username);
     params.append("password", password);
 
-    return axios.post(`${apiUrl}/api/v1/login/access-token`, params);
+    return axios.post(`${apiUrl}:8000/api/v1/login/access-token`, params);
   },
   async getMe(token: string) {
     return axios.get<IUserProfile>(

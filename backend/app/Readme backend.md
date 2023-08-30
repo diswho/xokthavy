@@ -2,11 +2,13 @@
 
 `cd backend\app`
 
-`venv\Scripts\activate`
+
 
 # Initial
 
 `python -m venv venv`
+
+`venv\Scripts\activate`
 
 `python -m pip install --upgrade pip`
 
