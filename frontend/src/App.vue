@@ -27,7 +27,7 @@ import { dispatchCheckLoggedIn } from '@/store/main/actions';
 
 @Component({
   components: {
-    NotificationsManager
+    NotificationsManager,
   },
 })
 export default class App extends Vue {

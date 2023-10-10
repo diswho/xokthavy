@@ -9,8 +9,7 @@ RUN npm install
 
 COPY ./ /app/
 
-ARG FRONTEND_ENV=development
-# ARG FRONTEND_ENV=production
+ARG FRONTEND_ENV=production
 
 ENV VUE_APP_ENV=${FRONTEND_ENV}
 
