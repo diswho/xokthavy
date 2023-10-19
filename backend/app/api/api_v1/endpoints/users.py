@@ -12,7 +12,7 @@ router = APIRouter()
 
 @router.post("/", response_model=schemas.User)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db), current_user: model.User = Depends(get_current_active_superuser)):
-    print("--- User: ", user)
+    # print("--- User: ", user)
     db_user = crud_user.get_by_email(db, email=user.email)
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
@@ -54,9 +54,9 @@ def read_user_me(
 @router.put("/me/", response_model=schemas.User)
 def update_user_me(
     db: Session = Depends(get_db),
-    password: str = Body(None),
-    full_name: str = Body(None),
     email: EmailStr = Body(None),
+    full_name: str = Body(None),
+    password: str = Body(None),
     current_user: model.User = Depends(get_current_active_user),
 ) -> Any:
     """
