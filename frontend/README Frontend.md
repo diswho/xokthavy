@@ -1,41 +1,26 @@
-# frontend
-
-```
+# Frontend - User Interface Setup
+```sh
 cd frontend
 ```
-
-## Project setup
-
+## Install package
+```sh
+npm install --global yarn
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
+## Init typescript
+```sh
+yarn create react-app ./ --template typescript
 ```
 
-### Compiles and minifies for production
+
+```sh
 
 ```
-npm run build
-```
-
-### Run your tests
+```sh
 
 ```
-npm run test
-```
-
-### Lints and fixes files
+```sh
 
 ```
-npm run lint
-```
+```sh
 
-### Run your unit tests
-
-```
-npm run test:unit
 ```
