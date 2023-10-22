@@ -5,9 +5,9 @@ export interface AuthState {
   isLoggedIn: boolean;
   authToken?: string;
   userId?: string;
-  name?: string;
+  full_name?: string;
   email?: string;
-};
+}
 
 export const defaultAuthState: AuthState = {
   isLoggedIn: false,
@@ -22,7 +22,7 @@ const authReducer: Reducer<AuthState, AuthAction> = (state, action) => {
       isLoggedIn: true,
       authToken: action.payload.authToken,
       userId: action.payload.userId,
-      name: action.payload.name,
+      full_name: action.payload.full_name,
       email: action.payload.email,
     };
   }
