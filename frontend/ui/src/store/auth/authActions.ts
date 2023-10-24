@@ -5,15 +5,15 @@ export enum AuthActionEnum {
 
 export type AuthAction =
   | {
-      type: AuthActionEnum.LOG_IN;
-      payload: {
-        authToken: string;
-        userId: string;
-        email: string;
-        full_name: string;
-      };
-    }
-  | {
-      type: AuthActionEnum.LOG_OUT;
-      payload: null;
+    type: AuthActionEnum.LOG_IN;
+    payload: {
+      authToken: string;
+      userId: string;
+      email: string;
+      full_name: string;
     };
+  }
+  | {
+    type: AuthActionEnum.LOG_OUT;
+    payload: null;
+  };

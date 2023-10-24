@@ -16,9 +16,7 @@ function App() {
           path="/"
           element={
             <Navigate
-              to={
-                authState.isLoggedIn ? location.pathname : "/login/access-token"
-              }
+              to={authState.isLoggedIn ? location.pathname : "/user/login"}
             />
           }
         />
@@ -37,4 +35,3 @@ function App() {
 }
 
 export default App;
-// /api/v1/login/access-token

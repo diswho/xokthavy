@@ -4,13 +4,13 @@ import React, {
   useCallback,
   useEffect,
 } from "react";
-
 import { useNavigate } from "react-router-dom";
 
+// Project dependencies
 import { AuthActionEnum } from "./authActions";
 import authReducer, { AuthState, defaultAuthState } from "./authReducer";
 
-type AuthProvideProps = {
+type AuthProviderProps = {
   children: React.ReactElement;
 };
 
@@ -26,6 +26,8 @@ export interface AuthContext {
   globalLogInDispatch: (props: UserData) => void;
   globalLogOutDispatch: () => void;
 }
+
+
 // Auth context
 const authCtx = createContext<AuthContext>({
   authState: defaultAuthState,
@@ -33,8 +35,9 @@ const authCtx = createContext<AuthContext>({
   globalLogOutDispatch: () => {},
 });
 
-export const AuthContextProvider = (props: AuthProvideProps) => {
+export const AuthContextProvider = (props: AuthProviderProps) => {
   const { children } = props;
+
   const [authState, authDispatch] = useReducer(authReducer, defaultAuthState);
   const navigate = useNavigate();
 
@@ -66,7 +69,7 @@ export const AuthContextProvider = (props: AuthProvideProps) => {
 
   const globalLogOutDispatch = useCallback(() => {
     authDispatch({ type: AuthActionEnum.LOG_OUT, payload: null });
-    navigate("/login/access-token");
+    navigate("/user/login");
   }, [navigate]);
 
   // context values to be passed down to children
@@ -78,4 +81,5 @@ export const AuthContextProvider = (props: AuthProvideProps) => {
 
   return <authCtx.Provider value={ctx}>{children}</authCtx.Provider>;
 };
+
 export default authCtx;
