@@ -24,15 +24,16 @@ const useApi = () => {
         const response = await fetch(BASE_URL + endpoint, { ...params });
         if (!response.ok) {
           const data = await response.json(); // Assume always json response
-          console.log("=== Error",data.error);
+          console.log("=== Error", data.error);
           throw new Error(data.error);
         }
         const data = await response.json(); // Assume always json response
-
+        console.log("=== data", data);
         // If response is okay and no errors, then successful request
         handleSuccessResponse && (await handleSuccessResponse(data));
+        console.log("=== handleSuccessResponse", handleSuccessResponse);
       } catch (error: any) {
-        console.log("=== catch Error",error.message);
+        console.log("=== catch Error", error.message);
         // NOTE: If it's unauthorized error, then we will auto log user out
         if (error && error.message && error.message === "Unauthorized") {
           globalLogOutDispatch();

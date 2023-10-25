@@ -23,6 +23,11 @@ const Resource = () => {
       setError(error.message || error);
     }
   }, [request, setError]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   return (
     <div className={styles.Resource}>
       <h1>{data}</h1>

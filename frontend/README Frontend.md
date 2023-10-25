@@ -18,8 +18,16 @@ npm install --global yarn
 yarn create react-app ./ --template typescript
 ```
 
-```sh
+## Path
 
+```sh
+cd frontend/ui
+```
+
+## Run app
+
+```sh
+yarn start
 ```
 
 ```sh

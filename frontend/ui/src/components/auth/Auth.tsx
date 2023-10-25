@@ -15,8 +15,8 @@ const Auth = () => {
   const { request, setError } = useApi();
   const { globalLogInDispatch } = useContext(AuthContext);
   const location = useLocation();
-  const currentPathArray = location.pathname.split('/');
-  const isLogin = currentPathArray[currentPathArray.length - 1] === 'login';
+  const currentPathArray = location.pathname.split("/");
+  const isLogin = currentPathArray[currentPathArray.length - 1] === "login";
 
   // Upon successful response from the api for login user, dispatch global auth LOG_IN event
   useEffect(() => {
@@ -45,7 +45,7 @@ const Auth = () => {
         throw new Error("Incorrect credential format!");
       }
       // const endpoint = `/user/${isLogin ? 'login' : 'register'}`
-      const endpoint = `${isLogin ? '/login/access-token' : '/user/register'}`
+      const endpoint = `${isLogin ? "/login/access-token" : "/user/register"}`;
       // const header = ${isLogin?{"Content-Type": "application/x-www-form-urlencoded"}:{"Content-Type": "application/json"}}
       var myHeaders = new Headers();
       var urlencoded = new URLSearchParams();
@@ -58,8 +58,8 @@ const Auth = () => {
         myHeaders.append("Content-Type", "application/json");
         urlencoded.append("email", userEmail?.toString() || "");
         urlencoded.append("password", userPassword?.toString() || "");
-        urlencoded.append("name", userEmail?.toString() || "");
-        console.log("-------isNotLogin - myHeaders")
+        urlencoded.append("name", userName?.toString() || "");
+        console.log("-------isNotLogin - myHeaders");
       }
       const params = {
         method: "POST",
@@ -76,12 +76,12 @@ const Auth = () => {
 
   return (
     <>
-      <h2>{isLogin ? 'Log In' : 'Sign Up'}</h2>
-      {
-        isLogin
-          ? <LogInForm onSubmit={authHandler} />
-          : <RegisterForm onSubmit={authHandler} />
-      }
+      <h2>{isLogin ? "Log In" : "Sign Up"}</h2>
+      {isLogin ? (
+        <LogInForm onSubmit={authHandler} />
+      ) : (
+        <RegisterForm onSubmit={authHandler} />
+      )}
     </>
   );
 };
