@@ -7,7 +7,7 @@ import useApi from "../../hooks/api/useApi";
 import { AuthData } from "../../hooks/api/apiData";
 import AuthContext from "../../store/auth/AuthContextProvider";
 import { validatePasswordLength, validateEmailFormat } from "./validations";
-import LoginForm from "./LoginForm";
+import LogInForm from "./LogInForm";
 import RegisterForm from "./RegisterForm";
 
 const Auth = () => {
@@ -44,20 +44,31 @@ const Auth = () => {
       ) {
         throw new Error("Incorrect credential format!");
       }
+      // const endpoint = `/user/${isLogin ? 'login' : 'register'}`
+      const endpoint = `${isLogin ? '/login/access-token' : '/user/register'}`
+      // const header = ${isLogin?{"Content-Type": "application/x-www-form-urlencoded"}:{"Content-Type": "application/json"}}
+      var myHeaders = new Headers();
+      var urlencoded = new URLSearchParams();
+      if (isLogin) {
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+        urlencoded.append("username", userEmail?.toString() || "");
+        urlencoded.append("password", userPassword?.toString() || "");
+        // console.log("-------isLogin - myHeaders")
+      } else {
+        myHeaders.append("Content-Type", "application/json");
+        urlencoded.append("email", userEmail?.toString() || "");
+        urlencoded.append("password", userPassword?.toString() || "");
+        urlencoded.append("name", userEmail?.toString() || "");
+        console.log("-------isNotLogin - myHeaders")
+      }
       const params = {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: userEmail,
-          password: userPassword,
-          name: userName,
-        }),
+        headers: myHeaders,
+        body: urlencoded,
       };
 
-      const endpoint = `/user/${isLogin ? 'login' : 'register'}`
       await request(endpoint, params, setAuthData);
+      // console.log("-------- AuthData")
     } catch (error: any) {
       setError(error.message || error);
     }
@@ -68,7 +79,7 @@ const Auth = () => {
       <h2>{isLogin ? 'Log In' : 'Sign Up'}</h2>
       {
         isLogin
-          ? <LoginForm onSubmit={authHandler} />
+          ? <LogInForm onSubmit={authHandler} />
           : <RegisterForm onSubmit={authHandler} />
       }
     </>

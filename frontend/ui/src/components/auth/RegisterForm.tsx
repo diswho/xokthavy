@@ -1,9 +1,11 @@
 import { FormEventHandler } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Auth.module.css";
+
 type Props = {
   onSubmit: FormEventHandler<HTMLFormElement>;
 };
+
 const RegisterForm = (props: Props) => {
   const { onSubmit } = props;
   return (
@@ -39,7 +41,7 @@ const RegisterForm = (props: Props) => {
         />
       </div>
       <button type="submit">Submit</button>
-      <Link className={styles.Link} to={"/login/access-token"}>
+      <Link className={styles.Link} to={"/user/login"}>
         Already have an account? Sign in
       </Link>
     </form>

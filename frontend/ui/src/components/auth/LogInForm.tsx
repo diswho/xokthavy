@@ -5,7 +5,8 @@ import styles from "./Auth.module.css";
 type Props = {
   onSubmit: FormEventHandler<HTMLFormElement>;
 };
-const LogInForm = (props: Props) => {
+
+const LoginForm = (props: Props) => {
   const { onSubmit } = props;
   return (
     <form onSubmit={onSubmit} className={styles.Form}>
@@ -37,4 +38,4 @@ const LogInForm = (props: Props) => {
   );
 };
 
-export default LogInForm;
+export default LoginForm;
