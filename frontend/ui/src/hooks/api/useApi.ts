@@ -31,7 +31,6 @@ const useApi = () => {
         console.log("=== data", data);
         // If response is okay and no errors, then successful request
         handleSuccessResponse && (await handleSuccessResponse(data));
-        console.log("=== handleSuccessResponse", handleSuccessResponse);
       } catch (error: any) {
         console.log("=== catch Error", error.message);
         // NOTE: If it's unauthorized error, then we will auto log user out
@@ -50,6 +49,7 @@ const useApi = () => {
     },
     [authState.isLoggedIn, authState.authToken, globalLogOutDispatch]
   );
+  console.log("=== handleSuccessResponse", authState.isLoggedIn);
   return {
     loading: loading,
     error: error,
