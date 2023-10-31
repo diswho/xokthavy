@@ -37,6 +37,11 @@ def login_access_token(db: Session = Depends(deps.get_db), form_data: OAuth2Pass
             user.id, expires_delta=access_token_expires
         ),
         "token_type": "bearer",
+        "email":user.email,
+        "is_active":user.is_active,
+        "is_superuser":user.is_superuser,
+        "full_name":user.full_name,
+        "user_id":user.id
     }
 
 
