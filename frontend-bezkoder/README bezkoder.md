@@ -1,5 +1,8 @@
 # bezkoder
 
+```sh
+cd frontend-bezkoder
+```
 ## React Typescript Authentication example with Hooks
 [URL](https://www.bezkoder.com/react-typescript-authentication-example/)
 
