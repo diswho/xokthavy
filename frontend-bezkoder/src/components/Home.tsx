@@ -12,10 +12,10 @@ const Home: React.FC = () => {
       },
       (error) => {
         const _content =
-          (error.response && error.response.data) ||
+          (error.response && error.response.data.detail) ||
           error.message ||
           error.toString();
-
+        console.log("_content", _content);
         setContent(_content);
       }
     );
