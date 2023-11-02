@@ -2,18 +2,10 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8000/api/v1";
 
-export const register = (username: string, email: string, password: string) => {
-  return axios.post(API_URL + "signup", {
-    username,
-    email,
-    password,
-  });
-};
-
 export const login = (username: string, password: string) => {
   const params = new URLSearchParams();
-  params.append('username', username);
-  params.append('password', password);
+  params.append("username", username);
+  params.append("password", password);
   return axios
     .post(API_URL + "/login/access-token", params)
     .then((response) => {
@@ -23,6 +15,14 @@ export const login = (username: string, password: string) => {
 
       return response.data;
     });
+};
+
+export const register = (username: string, email: string, password: string) => {
+  return axios.post(API_URL + "signup", {
+    username,
+    email,
+    password,
+  });
 };
 
 export const logout = () => {

@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     getPublicContent().then(
       (response) => {
-        setContent(response.data);
+        setContent(response.data.email);
       },
       (error) => {
         const _content =
@@ -16,7 +16,8 @@ const Home: React.FC = () => {
           error.message ||
           error.toString();
         console.log("_content", _content);
-        setContent(_content);
+        setContent(JSON.stringify(_content));
+        // setContent(_content);
       }
     );
   }, []);
@@ -24,6 +25,7 @@ const Home: React.FC = () => {
   return (
     <div className="container">
       <header className="jumbotron">
+        {/* <h3>{JSON.stringify(content)}</h3> */}
         <h3>{content}</h3>
       </header>
     </div>

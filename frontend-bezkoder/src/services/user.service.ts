@@ -1,12 +1,14 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "http://localhost:8000/api/v1/";
+const API_URL = "http://localhost:8000/api/v1";
 
 export const getPublicContent = () => {
   let data = {};
-  const head = authHeader();
-  return axios.post(API_URL + "login/test-token", data, { headers: {Authorization:head} });
+  // const head = authHeader();
+  return axios.post(API_URL + "/test-token", data, {
+    headers: authHeader(),
+  });
 };
 
 export const getUserBoard = () => {
