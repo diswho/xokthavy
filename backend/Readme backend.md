@@ -3,11 +3,13 @@ cd backend
 ```
 
 ```sh
-python -m venv venv
+venv\Scripts\activate
 ```
 
+## Setting up EVN
+
 ```sh
-venv\Scripts\activate
+python -m venv venv
 ```
 
 ```sh
@@ -30,9 +32,13 @@ pip install -r requirements.txt
 pip install pydantic[dotenv]
 ```
 
+## Initial Database
+
 ```sh
 uvicorn app.initial_data:main --reload
 ```
+
+## Run App
 
 ```sh
 uvicorn app.main:app --reload
