@@ -43,3 +43,6 @@ uvicorn app.initial_data:main --reload
 ```sh
 uvicorn app.main:app --reload
 ```
+## Many-To-Many Relationships In FastAPI 
+
+[URL](https://www.gormanalysis.com/blog/many-to-many-relationships-in-fastapi/)
