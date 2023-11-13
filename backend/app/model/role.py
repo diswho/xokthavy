@@ -9,4 +9,5 @@ if TYPE_CHECKING:
 class Role(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
-    users = relationship("User", secondary="user_roles", back_populates="roles")
+    # users = relationship("User", secondary="user_roles", back_populates="roles")
+    users = relationship("RoleUser", back_populates="role")

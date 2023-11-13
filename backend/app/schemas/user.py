@@ -1,5 +1,6 @@
 from app.schemas.item import Item
-from pydantic import BaseModel, ConfigDict, EmailStr
+from app.schemas.role import RoleBase
+from pydantic import BaseModel, ConfigDict, EmailStr, Field
 from typing import Optional, List
 
 
@@ -8,6 +9,7 @@ class UserBase(BaseModel):
     is_active: Optional[bool] = True
     is_superuser: bool = False
     full_name: Optional[str] = None
+    blurb: Optional[str] = None
 
 
 class UserCreate(UserBase):
@@ -20,10 +22,14 @@ class UserUpdate(UserBase):
 
 
 class UserInDBBase(UserBase):
-    id: int
+    id: int = Field(alias='user_id')
+    email: Optional[EmailStr] = Field(alias='user_name')
     # is_active: bool
     items: List[Item] = []
-    model_config = ConfigDict(from_attributes=True)
+    roles: List[RoleBase] = []
+    model_config = ConfigDict(
+        from_attributes=True,
+        populate_by_name=True, extra='allow')
 
 
 class User(UserInDBBase):

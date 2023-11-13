@@ -3,6 +3,7 @@ from typing import Any, Dict, Optional, Union
 from sqlalchemy.orm import Session
 from app.model.user import User
 from app.schemas import UserCreate, UserUpdate
+from app import schemas
 from app.core.security import get_password_hash, verify_password
 from fastapi.encoders import jsonable_encoder
 
@@ -16,6 +17,14 @@ def create(db: Session, user: UserCreate) -> Optional[User]:
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+def add_roles(db: Session, db_obj: User,roles:schemas.RoleInDBase):
+    
+    db.add(db_obj)
+    db.commit()
+    db.refresh(db_obj)
+    return db_obj
 
 
 def get_by_email(db: Session, email: str) -> Optional[User]:
