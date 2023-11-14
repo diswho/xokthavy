@@ -34,8 +34,7 @@ def init() -> None:
     session.commit()
 
     user1 = User(full_name="normal", email="superadmin1", hashed_password="")
-    user2 = User(full_name="superadmin",
-                 email="superadmin", hashed_password="")
+    user2 = User(full_name="superadmin", email="superadmin", hashed_password="")
 
     session.add_all([user1, user2])
     session.commit()
