@@ -13,7 +13,7 @@ def create_role(db: Session, role: schemas.RoleCreate) -> Optional[Role]:
 
 
 # def create_user_role(db: Session, roles: schemas.RoleCreate, user: User):
-#     db_role = Role(**roles.dict(), user=user)
+#     db_role = Role(**roles.model_dump(), user=user)
 #     db.add(db_role)
 #     db.commit()
 #     db.refresh(db_role)

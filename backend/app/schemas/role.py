@@ -5,7 +5,7 @@ from typing import Optional, List
 
 class RoleBase(BaseModel):
     name: str
-    blurb: Optional[str] = None
+    remark: Optional[str] = None
 
 
 class RoleCreate(RoleBase):

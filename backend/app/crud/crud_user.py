@@ -19,12 +19,14 @@ def create(db: Session, user: UserCreate) -> Optional[User]:
     return db_user
 
 
-def add_roles(db: Session, db_obj: User,roles:schemas.RoleInDBase):
-    
-    db.add(db_obj)
-    db.commit()
-    db.refresh(db_obj)
-    return db_obj
+# def add_roles(db: Session, db_obj: User,roles:schemas.RoleInDBase):
+#     obj_data = jsonable_encoder(db_obj)
+#     setattr(db_obj,roles,[**roles.dict()])
+#     obj_data.roles
+#     db.add(db_obj)
+#     db.commit()
+#     db.refresh(db_obj)
+#     return db_obj
 
 
 def get_by_email(db: Session, email: str) -> Optional[User]:

@@ -9,10 +9,10 @@ if TYPE_CHECKING:
     from .role import Role
 
 
-class UserRole(Base):
+class RoleUser(Base):
     user_id = Column(ForeignKey('user.id'), primary_key=True)
     role_id = Column(ForeignKey('role.id'), primary_key=True)
-    blurb = Column(String, nullable=False)
+    remark = Column(String, nullable=False)
     role = relationship("Role", back_populates="users")
     user = relationship("User", back_populates="roles")
     # proxies
