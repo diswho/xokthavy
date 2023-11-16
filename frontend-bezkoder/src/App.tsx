@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import * as AuthService from "./services/auth.service";
-import IUser from './types/user.type';
+import IUser from "./types/user.type";
 
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -14,7 +14,6 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
-
 import EventBus from "./common/EventBus";
 
 const App: React.FC = () => {
@@ -29,7 +28,7 @@ const App: React.FC = () => {
       setCurrentUser(user);
       // setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
       // setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
-      setShowModeratorBoard(user.is_active)
+      setShowModeratorBoard(user.is_active);
       setShowAdminBoard(user.is_superuser);
     }
 
