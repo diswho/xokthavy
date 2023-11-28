@@ -1,5 +1,5 @@
 from pydantic import BaseModel, ConfigDict, Field
-from app.schemas.user import UserBase
+# from app.schemas.user import UserBase
 from typing import Optional, List
 
 
@@ -19,7 +19,7 @@ class RoleUpdate(RoleBase):
 class RoleInDBase(RoleBase):
     id: int = Field(alias='role_id')
     name: str = Field(alias='role_name')
-    users: List[UserBase] = []
+    # users: List[UserBase] = []
     model_config = ConfigDict(
         from_attributes=True,
         populate_by_name=True, extra='allow')
