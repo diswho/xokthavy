@@ -1,6 +1,7 @@
-fastapi<0.104.1
-jose
-passlib
-pydantic<2.*
-# pydantic-settings<1
-# ydantic-settings<0 (from versions: 0.1.0a1, 0.1.0a2, 0.1.1b0, 0.1.2b0, 0.2.5, 1.99, 2.0a1, 2.0a3, 2.0a4, 2.0b1, 2.0b2, 2.0.0, 2.0.1, 2.0.2, 2.0.3, 2.1.0)
+fastapi==0.104.0
+passlib==1.7.4
+pydantic==2.5.2
+pydantic_settings==2.1.0
+python_jose==3.3.0
+SQLAlchemy==2.0.23
+starlette==0.27.0

@@ -32,6 +32,10 @@ pip install -r requirements.txt
 pip install pydantic[dotenv]
 ```
 
+```sh
+pip uninstall
+```
+
 ## Initial Database
 
 ```sh
@@ -43,6 +47,7 @@ uvicorn app.initial_data:main --reload
 ```sh
 uvicorn app.main:app --reload
 ```
-## Many-To-Many Relationships In FastAPI 
+
+## Many-To-Many Relationships In FastAPI
 
 [URL](https://www.gormanalysis.com/blog/many-to-many-relationships-in-fastapi/)
