@@ -17,12 +17,14 @@ def init() -> None:
     role_user = Role(name="user")
     role_moderator = Role(name="moderator")
     role_admin = Role(name="admin")
+
     session.add_all([role_user, role_moderator, role_admin])
     session.commit()
 
-    user_normal = User(full_name="normal", email="superadmin1", hashed_password="")
+    user_normal = User(full_name="normal",
+                       email="superadmin1", hashed_password="")
     user_superadmin = User(full_name="superadmin",
-                 email="superadmin", hashed_password="")
+                           email="superadmin", hashed_password="")
 
     session.add_all([user_normal, user_superadmin])
     session.commit()
@@ -48,17 +50,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-# def init() -> None:
-#     db = SessionLocal()
-#     init_db(db)
-
-
-# def main() -> None:
-#     logger.info("====== Creating initial data")
-#     init()
-#     logger.info("====== Initial data created")
-
-
-# if __name__ == "__main__":
-#     main()
+# uvicorn app.initial_database:main

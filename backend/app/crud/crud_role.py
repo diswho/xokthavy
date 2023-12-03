@@ -12,14 +12,9 @@ def create_role(db: Session, role: schemas.RoleCreate) -> Optional[Role]:
     return db_role
 
 
-def create_user_role(db: Session,  obj_in: Union[schemas.RoleInDBase, Dict[str, Any]], user_id: int):
-    if isinstance(obj_in, dict):
-        update_data = obj_in
-    else:
-        update_data = obj_in.model_dump(exclude_unset=True)
-
-    
-    db_role = RoleUser(**obj_in.model_dump(), user_id=user_id)
+def create_user_role(db: Session,  role_id: int, user_id: int, remark=str) -> Optional[RoleUser]:
+    db_role = RoleUser(role_id=role_id, user_id=user_id,
+                       remark=remark)
     db.add(db_role)
     db.commit()
     db.refresh(db_role)

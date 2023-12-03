@@ -14,11 +14,8 @@ class UserBase(BaseModel):
 
 class UserCreate(UserBase):
     email: EmailStr
-    password: str
+    hashed_password: str
 
-class UserCreate(UserBase):
-    email: EmailStr
-    password: str
 
 class UserUpdate(UserBase):
     password: Optional[str] = None

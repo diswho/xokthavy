@@ -10,7 +10,7 @@ from fastapi.encoders import jsonable_encoder
 
 def create(db: Session, user: UserCreate) -> Optional[User]:
     db_user = User(email=user.email,
-                   hashed_password=get_password_hash(user.password),
+                   hashed_password=get_password_hash(user.hashed_password),
                    full_name=user.full_name,
                    is_superuser=user.is_superuser,)
     db.add(db_user)
