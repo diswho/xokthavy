@@ -7,7 +7,7 @@
 [GitHub ](https://github.com/MasWho/medium-blog/tree/authentication-and-authorization/authentication-and-authorization/ui)
 
 ```sh
-cd frontend/ui
+cd frontend-MasonHu\ui
 ```
 
 ## Install package

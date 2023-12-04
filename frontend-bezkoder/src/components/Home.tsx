@@ -26,6 +26,7 @@ const Home: React.FC = () => {
     <div className="container">
       <header className="jumbotron">
         {/* <h3>{JSON.stringify(content)}</h3> */}
+        <h3>Home</h3>
         <h3>{content}</h3>
       </header>
     </div>
