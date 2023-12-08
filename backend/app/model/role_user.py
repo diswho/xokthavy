@@ -17,4 +17,4 @@ class RoleUser(Base):
     user = relationship("User", back_populates="roles")
     # proxies
     role_name = association_proxy(target_collection='role', attr="name")
-    user_name = association_proxy(target_collection='user', attr="name")
+    user_name = association_proxy(target_collection='user', attr="full_name")
