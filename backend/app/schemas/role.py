@@ -31,3 +31,9 @@ class Role(RoleInDBase):
 
 class RoleInDBase(RoleInDBase):
     pass
+
+
+class Role_user(BaseModel):
+    user_id: int
+    role_id: int
+    remark: str
