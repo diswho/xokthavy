@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     getPublicContent().then(
       (response) => {
-        setContent(response.data.email);
+        setContent(response.data.user_name);
       },
       (error) => {
         const _content =
